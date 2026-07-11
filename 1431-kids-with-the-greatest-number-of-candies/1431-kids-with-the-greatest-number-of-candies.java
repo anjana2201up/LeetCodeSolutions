@@ -1,0 +1,24 @@
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+
+        int max = 0;
+
+        // Find maximum candies
+        for (int candy : candies) {
+            max = Math.max(max, candy);
+        }
+
+        List<Boolean> result = new ArrayList<>();
+
+        // Check each kid
+        for (int candy : candies) {
+            result.add(candy + extraCandies >= max);
+        }
+
+        return result;
+    }
+}
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
