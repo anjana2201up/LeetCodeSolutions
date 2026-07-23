@@ -1,11 +1,5 @@
 class Solution {
     public int maxSubArray(int[] nums) {
-        // Kadane's algorithm: maintain current subarray sum and global max.
-        // Time Complexity: O(n) – each element processed once.
-        // Space Complexity: O(1) – only constant extra variables used.
-        // This solution correctly handles arrays with all negative numbers
-        // because it initializes currentSum and maxSum with nums[0].
-        // No further optimization needed; this is optimal for the problem.
 
         int currentSum = nums[0];
         int maxSum = nums[0];
