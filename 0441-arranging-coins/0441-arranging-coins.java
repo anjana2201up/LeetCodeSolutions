@@ -6,7 +6,6 @@ class Solution {
         while (left <= right) {
             long mid = left + (right - left) / 2;
             long coins = mid * (mid + 1) / 2;
-
             if (coins == n) {
                 return (int) mid;
             } else if (coins < n) {
@@ -15,7 +14,6 @@ class Solution {
                 right = mid - 1;
             }
         }
-
         return (int) right;
     }
 }
