@@ -1,0 +1,46 @@
+class Solution {
+    public int[] validSequence(String word1, String word2) {
+        int n = word1.length();
+        int m = word2.length();
+
+        int[] last = new int[m];
+        int i = n - 1;
+        int j = m - 1;
+
+        while (i >= 0 && j >= 0) {
+            if (word1.charAt(i) == word2.charAt(j)) {
+                last[j] = i;
+                j--;
+            } else {
+                last[j] = -1;
+            }
+            i--;
+        }
+
+        if (j >= 0) {
+            while (j >= 0) {
+                last[j] = -1;
+                j--;
+            }
+        }
+
+        int[] ans = new int[m];
+        boolean used = false;
+        j = 0;
+
+        for (i = 0; i < n && j < m; i++) {
+            if (word1.charAt(i) == word2.charAt(j)) {
+                ans[j++] = i;
+            } else if (!used && (j == m - 1 || last[j + 1] > i)) {
+                ans[j++] = i;
+                used = true;
+            }
+        }
+
+        return j == m ? ans : new int[0];
+    }
+}
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
